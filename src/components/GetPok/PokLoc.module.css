@@ -1,0 +1,39 @@
+.tableHeader {
+  font-size: 1.6rem;
+  text-align: center;
+  text-decoration: underline;
+  padding-bottom: 15px;
+}
+
+.tableChild {
+  padding: 2px 0px 2px 0px;
+  font-size: 1.5rem;
+}
+
+.tableWrapper {
+  height: 150px;
+  overflow: auto;
+  margin-bottom: 50px;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+.tableWrapper {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(210, 222, 255) #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+.tableWrapper::-webkit-scrollbar {
+  width: 7px;
+}
+
+.tableWrapper::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb {
+  background-color: rgb(197, 212, 255);
+  border-radius: 10px;
+  border: 0px solid #ffffff;
+}

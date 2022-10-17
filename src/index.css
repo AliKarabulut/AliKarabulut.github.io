@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+html {
+  font-family: "Noto Sans Mono", monospace;
+}
+
+body {
+  margin: 0;
+  background: rgb(57, 56, 56);
+}
+
+main {
+  margin-top: 6rem;
+}

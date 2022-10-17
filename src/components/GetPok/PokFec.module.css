@@ -1,0 +1,68 @@
+.name {
+  display: flex;
+  align-items: baseline;
+  font-size: 4rem;
+  font-weight: 600;
+  text-shadow: 1px 1px black, -1px -1px black;
+  color: rgb(210, 222, 255);
+  margin-right: 10px;
+}
+
+.nameWrapper {
+  display: grid;
+  grid-column: 1 / span 2;
+  justify-content: center;
+  align-items: baseline;
+  margin-top: -30px;
+}
+
+.image {
+  width: 250px;
+  transform: scale(1.5);
+}
+
+.type {
+  width: 60px;
+}
+
+.statWrapper {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 15px 30px 15px 0px;
+}
+.CardoStat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stat {
+  font-size: 1.5rem;
+}
+
+.statName {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.Cardo {
+  display: inline-flex;
+
+  align-content: space-evenly;
+}
+
+.character {
+  font-size: 1.5rem;
+  margin-right: 50px;
+}
+
+.Hwa {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.characterWrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+}
