@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import styles from "./PokLoc.module.css";
 const PokLoc = (props) => {
   const [error, setError] = useState(null);
-  const [dava, setDava] = useState([]);
+  const [data, setData] = useState([]);
 
   const enterPokHandler = async () => {
     setError(null);
@@ -16,17 +16,17 @@ const PokLoc = (props) => {
       }
 
       const data = await response.json();
-      const anan = [];
+      const datas = [];
 
       data.map((event) => {
-        return anan.push(event.location_area.name);
+        return datas.push(event.location_area.name);
       });
 
       console.log("pokloc");
-      console.log(anan);
+      console.log(datas);
       console.log("pokloc");
 
-      setDava(anan);
+      setData(datas);
     } catch (err) {
       setError(err.message || "Something went wrong!");
     }
@@ -41,7 +41,7 @@ const PokLoc = (props) => {
       <div className={styles.tableWrapper}>
         <table className={styles.table}>
           <th className={styles.tableHeader}>Location</th>
-          {dava.map((value) => {
+          {data.map((value) => {
             return (
               <tr className={styles.tableChild}>
                 {value[0].toUpperCase() +

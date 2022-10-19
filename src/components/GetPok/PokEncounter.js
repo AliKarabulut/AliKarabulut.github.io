@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import styles from "./PokEncounter.module.css";
 const PokEncounter = (props) => {
   const [error, setError] = useState(null);
-  const [dava, setDava] = useState("");
+  const [data, setData] = useState("");
 
   const enterPokHandler = async () => {
     setError(null);
@@ -17,7 +17,7 @@ const PokEncounter = (props) => {
 
       const data = await response.json();
       const datas = data.names;
-      setDava(datas.pop().name);
+      setData(datas.pop().name);
     } catch (err) {
       setError(err.message || "Something went wrong!");
     }
@@ -31,9 +31,10 @@ const PokEncounter = (props) => {
     <Fragment>
       <div>
         <span className={styles.encounter}>Encounter: </span>
-        <span className={styles.encounterChild}>{dava}</span>
+        <span className={styles.encounterChild}>{data}</span>
+        {error && <span>{error}</span>}
       </div>
-      {error && <p>{error}</p>}
+
     </Fragment>
   );
 };

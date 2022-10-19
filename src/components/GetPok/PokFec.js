@@ -4,8 +4,8 @@ import styles from "./PokFec.module.css";
 
 const PokFec = (props) => {
   const [error, setError] = useState(null);
-  const [dava, setDava] = useState("");
-  const [davas, setDavas] = useState("");
+  const [data, setData] = useState("");
+  const [pic, setPic] = useState("");
   const [ability, setAbility] = useState("");
 
   const enterPokHandler = async () => {
@@ -21,8 +21,8 @@ const PokFec = (props) => {
 
       const data = await response.json();
       console.log(data);
-      setDava(data);
-      setDavas(data.sprites.front_default);
+      setData(data);
+      setPic(data.sprites.front_default);
       setAbility(data.abilities[0].ability.name);
       const loadedTasks = [];
 
@@ -44,9 +44,9 @@ const PokFec = (props) => {
         {" "}
         <div className={styles.name}>
           {" "}
-          {`${dava.name}`.toUpperCase()}{" "}
+          {`${data.name}`.toUpperCase()}{" "}
           <div className={styles.typeContain}>
-            {dava.types?.map((types) => {
+            {data.types?.map((types) => {
               return (
                 <img
                   className={styles.type}
@@ -60,18 +60,18 @@ const PokFec = (props) => {
       </div>
       <div className={styles.CardoStat}>
         <div className={styles.Cardo}>
-          <img className={styles.image} src={davas} alt="" />
+          <img className={styles.image} src={pic} alt="" />
           <div className={styles.characterWrapper}>
             <div className={styles.character}>
               <span className={styles.Hwa}>Height:</span>{" "}
-              {((dava.height * 10) / 2.54 / 12).toFixed(0) +
+              {((data.height * 10) / 2.54 / 12).toFixed(0) +
                 "' " +
-                ("0" + Math.round(((dava.height * 10) / 2.54) % 12)).slice(-2) +
+                ("0" + Math.round(((data.height * 10) / 2.54) % 12)).slice(-2) +
                 '"'}
             </div>
             <div className={styles.character}>
               <span className={styles.Hwa}>Weight:</span>{" "}
-              {(dava.weight * 0.22).toFixed(1) + " lbs"}
+              {(data.weight * 0.22).toFixed(1) + " lbs"}
             </div>
             <div className={styles.character}>
               <span className={styles.Hwa}>Ability:</span>{" "}
@@ -85,7 +85,7 @@ const PokFec = (props) => {
         </div>
 
         <div className={styles.statWrapper}>
-          {dava.stats?.map((anan) => {
+          {data.stats?.map((anan) => {
             return (
               <div className={styles.stat}>
                 <span className={styles.statName}>
@@ -105,7 +105,7 @@ const PokFec = (props) => {
         </div>
       </div>
 
-      {error && <p>{error}</p>}
+      {error && <span>{error}</span>}
     </Fragment>
   );
 };

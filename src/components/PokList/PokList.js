@@ -3,9 +3,9 @@ import styles from "./PokList.module.css";
 
 const PokList = (props) => {
   const [error, setError] = useState(null);
-  const [tasks, setTasks] = useState([]);
+  const [data, setData] = useState([]);
 
-  const fetchTasks = async () => {
+  const fetchdata = async () => {
     setError(null);
     try {
       const response = await fetch(
@@ -19,34 +19,34 @@ const PokList = (props) => {
       const data = await response.json();
       const datas = data.results;
 
-      const loadedTasks = [];
+      const loadeddata = [];
 
-      for (const taskKey in datas) {
-        loadedTasks.push({
-          name: datas[taskKey].name,
-          id: Number(taskKey) + 1,
+      for (const pokKey in datas) {
+        loadeddata.push({
+          name: datas[pokKey].name,
+          id: Number(pokKey) + 1,
         });
       }
 
-      setTasks(loadedTasks);
+      setData(loadeddata);
     } catch (err) {
       setError(err.message || "Something went wrong!");
     }
   };
 
   useEffect(() => {
-    fetchTasks();
+    fetchdata();
   }, []);
 
   const updatePokeDex = (poke) => {
     props.onTake(poke);
   };
   if (props.valss.trim().length > 0) {
-    props.onId(tasks);
+    props.onId(data);
     return (
       <Fragment>
         <div className={styles.max}>
-          {tasks
+          {data
             .filter(({ name }) => name.indexOf(props.valss.toLowerCase()) > -1)
             .map((value, i) => {
               return (

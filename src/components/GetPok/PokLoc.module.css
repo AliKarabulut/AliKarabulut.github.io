@@ -16,14 +16,13 @@
   margin-bottom: 50px;
 }
 
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
+
 .tableWrapper {
   scrollbar-width: thin;
   scrollbar-color: rgb(210, 222, 255) #ffffff;
 }
 
-/* Chrome, Edge, and Safari */
+
 .tableWrapper::-webkit-scrollbar {
   width: 7px;
 }

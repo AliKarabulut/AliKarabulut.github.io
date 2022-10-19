@@ -3,7 +3,7 @@ import styles from "./PokChar.module.css";
 
 const PokChar = (props) => {
   const [error, setError] = useState(null);
-  const [dava, setDava] = useState("");
+  const [data, setData] = useState("");
 
   const enterPokHandler = async () => {
     setError(null);
@@ -18,10 +18,10 @@ const PokChar = (props) => {
 
       const data = await response.json();
       const datas = data.descriptions;
-      let anan = datas.filter(({ language }) => language.name === "en");
-      let anans = anan[0].description;
-      console.log("anan");
-      setDava(anans);
+      let dataFilter = datas.filter(({ language }) => language.name === "en");
+      let dataFilters = dataFilter[0].description;
+      console.log("dataFilter");
+      setData(dataFilters);
     } catch (err) {
       setError(err.message || "Something went wrong!");
     }
@@ -36,9 +36,10 @@ const PokChar = (props) => {
       <div className={props.className}>
         {" "}
         <span className={styles.Hwa}>Characteristic: </span>
-        {dava}
+        <span>{data}</span>
+        {error && <span>{error}</span>}
       </div>
-      {error && <p>{error}</p>}
+      
     </Fragment>
   );
 };
